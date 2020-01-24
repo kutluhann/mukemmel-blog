@@ -2,13 +2,11 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
-import Layout from '../components/Layout'
 import PostList from '../components/blog/PostList'
 import SearchField from '../components/blog/SearchField'
 import Categories from '../components/blog/Categories'
 
 const Home = ({ posts, categories }) => (
-  <Layout>
     <main className="pt-12 px-6">
     <section>
       <div className="container">
@@ -31,7 +29,6 @@ const Home = ({ posts, categories }) => (
       </div>
     </section>
   </main>
-  </Layout>
 );
 
 Home.getInitialProps = async ({ req }) => {
