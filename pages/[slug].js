@@ -5,7 +5,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Layout from '../components/Layout'
 
-const BlogPost = ({ post }) => (
+const BlogPost = ({ post }) => {(
   <Layout>
     <div className="container">
       <Head>
@@ -44,7 +44,7 @@ const BlogPost = ({ post }) => (
       </div>
     </div>
   </Layout>
-);
+);}
 
 BlogPost.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin

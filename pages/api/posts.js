@@ -1,7 +1,8 @@
-import { getPosts } from "../../src/blog";
+import { getPosts, getCategories } from "../../src/blog";
 
 const posts = getPosts();
+const categories = getCategories();
 
 export default async (req, res) => {
-  res.json({ posts });
+  res.json({ posts, categories });
 };

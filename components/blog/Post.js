@@ -16,7 +16,7 @@ const Post = (props) => {
               <span className="w-2 h-2 rounded-sm"></span>
             </span>
             <span className="ml-2">
-              {post.category}
+              {post.category.name}
             </span>
           </span>
           <h3 className="title touch:text-5 mb-2 cursor-pointer">
@@ -33,7 +33,7 @@ const Post = (props) => {
           <Link href={post.slug}>
             <a className="hover:text-link text-gray-600 text-8 touch:text-9 flex justify-center items-center cursor-pointer transition-text">
               <span className="mr-1">Yazıya git</span>
-              <svg className="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg className="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>

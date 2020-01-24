@@ -4,8 +4,10 @@ import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import Layout from '../components/Layout'
 import PostList from '../components/blog/PostList'
+import SearchField from '../components/blog/SearchField'
+import Categories from '../components/blog/Categories'
 
-const Home = ({ posts }) => (
+const Home = ({ posts, categories }) => (
   <Layout>
     <main className="pt-12 px-6">
     <section>
@@ -21,7 +23,8 @@ const Home = ({ posts }) => (
           </div>
           <aside className="w-1/3 touch:w-full desktop:mx-3 touch:mb-2 h-auto">
             <div className="sticky top-6 w-full flex flex-col justify-satart items-center touch:flex-col-reverse">
-              
+              <SearchField />
+              <Categories categories={categories} />
             </div>
           </aside>
         </div>
@@ -35,7 +38,10 @@ Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("http://localhost:3000/api/posts");
   const json = await res.json();
-  return { posts: json.posts };
+  return { 
+    posts: json.posts,
+    categories: json.categories
+  };
 };
 
 export default Home;
