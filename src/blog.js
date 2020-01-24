@@ -1,36 +1,5 @@
-const categoryList = [
-  {
-    slug: 'javascript',
-    name: 'JavaScript',
-    color: '#f7df1e',
-  },
-  {
-    slug: 'vuejs',
-    name: 'Vue.js',
-    color: '#42b883',
-  },
-  {
-    slug: 'css',
-    name: 'CSS',
-    colors: '#2965f1',
-  },
-  
-  {
-    slug: 'html',
-    name: 'HTML',
-    color: '#e34f26',
-  },
-]
-
-const postList = [
-  {
-    title: 'Birinci Yazı!',
-    slug: 'birinci-yazi',
-    category: 'javascript',
-    details: require('./posts/birinci-yazi.md').default,
-    date: '22 Ocak 2020'
-  }
-]
+import { postList } from './postList'
+import { categoryList } from './categoryList'
 
 export const getCategories = () => categoryList.reduce((groups, category) => {
   const postCount = postList.filter(post => post.category == category.slug).length || 0
