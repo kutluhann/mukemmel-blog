@@ -22,14 +22,27 @@ const Categories = (props) => {
           <Link href="/">
             <a className="group h-8 cursor-pointer py-2 mx-2 text-8 flex justify-center items-center">
               <span className="h-3 w-3 flex justify-center items-center">
-                  <span 
-                    className="bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size"
-                  ></span>
+                  <span className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${!router.query.categorySlug ? 'h-3 w-3' : ''}`} ></span>
               </span>
               <span className="ml-2 text-gray-600">Tüm yazılar / {totalPostCount}</span>
             </a>
           </Link>
         </li>
+        {categories.map(category => (
+          <li>
+            <Link href={`/category/${category.slug}`}>
+              <a className="group h-8 cursor-pointer py-2 mx-2 text-8 flex justify-center items-center">
+                <span className="h-3 w-3 flex justify-center items-center">
+                    <span 
+                      style={{backgroundColor: category.color}}
+                      className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${router.query.categorySlug == category.slug ? 'h-3 w-3' : ''}`} 
+                    ></span>
+                </span>
+                <span className="ml-2 text-gray-600">{category.name} / {category.postCount}</span>
+              </a>
+            </Link>
+          </li>
+        ))}
     </ul>
   </div>
   )

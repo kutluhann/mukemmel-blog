@@ -13,7 +13,7 @@ const Post = (props) => {
         <header className="flex flex-col">
           <span className="text-8 touch:text-9 text-gray-600 mb-1 flex justify-start items-center">
             <span className="h-2 w-2 flex justify-center items-center">
-              <span className="w-2 h-2 rounded-sm"></span>
+              <span style={{backgroundColor: post.category.color}} className="w-2 h-2 rounded-sm"></span>
             </span>
             <span className="ml-2">
               {post.category.name}
