@@ -18,7 +18,7 @@ const Categories = ({ categories }) => {
       </h3>
       <ul className="flex flex flex-col items-start justify-center touch:flex-row touch:flex-wrap touch:justify-start">
         <li>
-            <Link href="/">
+            <Link href="/" scroll={false}>
               <a className="group h-8 cursor-pointer py-2 mx-2 text-8 flex justify-center items-center">
                 <span className="h-3 w-3 flex justify-center items-center">
                     <span className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${!router.query.categorySlug ? 'h-3 w-3' : ''}`} ></span>
@@ -29,7 +29,7 @@ const Categories = ({ categories }) => {
           </li>
           {categories.map((category, index) => (
             <li key={index}>
-              <Link href="/category/[categorySlug]" as={`/category/${category.slug}`}>
+              <Link href="/category/[categorySlug]" as={`/category/${category.slug}`} scroll={false}>
                 <a className="group h-8 cursor-pointer py-2 mx-2 text-8 flex justify-center items-center">
                   <span className="h-3 w-3 flex justify-center items-center">
                       <span 

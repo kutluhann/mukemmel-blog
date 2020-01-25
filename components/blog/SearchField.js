@@ -1,4 +1,7 @@
+import { useState } from 'react'
+
 const SearchField = () => {
+  const [searchValue, setSearchValue] = useState('')
   return (
     <div className="mb-6 touch:mb-0 touch:mt-4 shadow rounded-10 flex justify-center p-5 flex-col w-full">
       <label htmlFor="search-input">
@@ -11,8 +14,16 @@ const SearchField = () => {
         </h3>
       </label>
       <form action="">
-        <input id="search-input" className="h-8 w-full border-none focus:outline-none text-8 touch:text-7" type="text" v-model="searchText" placeholder="Gönderilerde ara.."/>
+        <input 
+          id="search-input" 
+          className="h-8 w-full border-none focus:outline-none text-8 touch:text-7" 
+          type="text" 
+          placeholder="Gönderilerde ara.."
+          value={searchValue}
+          onChange={e => setSearchValue(e.target.value)}
+        />
       </form>
+      {searchValue}
     </div>
   )
 }
