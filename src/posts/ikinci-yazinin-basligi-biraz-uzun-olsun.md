@@ -1,0 +1,1 @@
+Buralarda durum güncellemesi yapılabilir..

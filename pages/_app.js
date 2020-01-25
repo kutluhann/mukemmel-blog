@@ -1,7 +1,9 @@
 import React from 'react'
 import App from 'next/app'
-import Layout from '../components/Layout'
-import '../css/tailwind.css'
+import Layout from './../components/Layout'
+
+import './../styles/tailwind.css'
+import './../styles/blog.css'
 
 class MyApp extends App {
   render() {

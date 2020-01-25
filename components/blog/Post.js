@@ -4,11 +4,15 @@ const Post = (props) => {
   const { post } = props
   return (
     <article className="flex rounded-10 shadow mb-6 touch:mb-4">
-      <div v-if="post.image" className="w-3/12">
-        <Link href={post.slug}>
-          <img></img>
-        </Link>
-      </div>
+      {post.image &&
+        <div v-if="post.image" className="w-3/12">
+          <Link href={post.slug}>
+            <a className="cursor-pointer h-full">
+              <img alt={post.title} src={post.image} className="object-cover h-full w-full rounded-l-10 hover:opacity-90 transition-opacity"></img>
+            </a>
+          </Link>
+        </div>
+      }
       <div className="w-full p-5 touch:p-4 flex flex-col justify-between">
         <header className="flex flex-col">
           <span className="text-8 touch:text-9 text-gray-600 mb-1 flex justify-start items-center">
@@ -25,6 +29,11 @@ const Post = (props) => {
             </Link>
           </h3>
         </header>
+        {post.description &&
+          <div>
+            <p className="text-7 text-gray-600">{post.description}</p>
+          </div>
+        }
         <div className="flex justify-between items-center">
           <span className="text-8 touch:text-9 text-gray-600 flex justify-center items-center">
             <span>&#8211;</span>

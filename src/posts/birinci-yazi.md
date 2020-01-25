@@ -1,3 +1,0 @@
-Birinci Yazı
-
-Merhaba Dünya
