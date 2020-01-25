@@ -1,7 +1,6 @@
 import Post from './Post'
 
-const PostList = (props) => {
-  const { posts } = props
+const PostList = ({ posts }) => {
   return (
     <div>
       {posts.length ? (

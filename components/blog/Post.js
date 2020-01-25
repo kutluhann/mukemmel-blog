@@ -1,12 +1,11 @@
 import Link from 'next/link'
 
-const Post = (props) => {
-  const { post } = props
+const Post = ({ post }) => {
   return (
     <article className="flex rounded-10 shadow mb-6 touch:mb-4">
       {post.image &&
         <div v-if="post.image" className="w-3/12">
-          <Link href={post.slug}>
+          <Link href="/[postSlug]" as={`/${post.slug}`}>
             <a className="cursor-pointer h-full">
               <img alt={post.title} src={post.image} className="object-cover h-full w-full rounded-l-10 hover:opacity-90 transition-opacity"></img>
             </a>
@@ -24,7 +23,7 @@ const Post = (props) => {
             </span>
           </span>
           <h3 className="title touch:text-5 mb-2 cursor-pointer">
-            <Link href={post.slug}>
+            <Link href="/[postSlug]" as={`/${post.slug}`}>
               <a>{post.title}</a>
             </Link>
           </h3>
@@ -39,7 +38,7 @@ const Post = (props) => {
             <span>&#8211;</span>
             <span className="ml-1">{post.date}</span>
           </span>
-          <Link href={post.slug}>
+          <Link href="/[postSlug]" as={`/${post.slug}`}>
             <a className="hover:text-link text-gray-600 text-8 touch:text-9 flex justify-center items-center cursor-pointer transition-text">
               <span className="mr-1">Yazıya git</span>
               <svg className="h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

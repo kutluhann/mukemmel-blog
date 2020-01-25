@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-const Categories = (props) => {
+const Categories = ({ categories }) => {
   const router = useRouter()
-  const { categories } = props
   const totalPostCount = categories.reduce((total, category) => {
     return total + category.postCount
   }, 0)
@@ -30,7 +29,7 @@ const Categories = (props) => {
           </li>
           {categories.map((category, index) => (
             <li key={index}>
-              <Link href={`/category/${category.slug}`}>
+              <Link href="/category/[categorySlug]" as={`/category/${category.slug}`}>
                 <a className="group h-8 cursor-pointer py-2 mx-2 text-8 flex justify-center items-center">
                   <span className="h-3 w-3 flex justify-center items-center">
                       <span 
