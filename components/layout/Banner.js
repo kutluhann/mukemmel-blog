@@ -1,8 +1,8 @@
 const Banner = () => (
   <section className="wiggle bg-primary text-white">
     <div className="container pt-8 pb-12 px-6 text-center relative">
-      <h1 className="title text-3">kutluhann</h1>
-      <p className="text-5">A blog about code..</p>
+      <h1 className="title text-3">Hasan Kutluhan Şıpka</h1>
+      <p className="text-5">küçük bir yazılım blogu</p>
       <div className="absolute inset-x-0 bottom-0 flex justify-center items-center">
         <div className="flex justify-center items-center flex-row h-12 bg-white text-gray-500 p-2 rounded-10 shadow relative top-6">
           <a href="https://twitter.com/kutluhan22" target="_blank" aria-label="twitter" className="cursor-pointer mx-2 hover:text-twitter hover:rotate transition-rotate" rel="noopener">

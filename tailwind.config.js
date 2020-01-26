@@ -27,6 +27,7 @@ module.exports = {
       instagram: '#c13584',
       github: '#333',
       twitter: '#1da1f2',
+      facebook: '#4267b2',
 
       gray: {
         100: '#f1f2f6',
