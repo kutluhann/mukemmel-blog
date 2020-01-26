@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const SearchField = () => {
+const SearchField = ({ passSearchValue }) => {
   const [searchValue, setSearchValue] = useState('')
   return (
     <div className="mb-6 touch:mb-0 touch:mt-4 shadow rounded-10 flex justify-center p-5 flex-col w-full">
@@ -20,10 +20,12 @@ const SearchField = () => {
           type="text" 
           placeholder="Gönderilerde ara.."
           value={searchValue}
-          onChange={e => setSearchValue(e.target.value)}
+          onChange={e => {
+            setSearchValue(e.target.value)
+            passSearchValue(e.target.value)
+          }}
         />
       </form>
-      {searchValue}
     </div>
   )
 }
