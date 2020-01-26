@@ -27,5 +27,3 @@ Daha detaylı bilgi için [dökümantasyonundan](https://vuex.vuejs.org/) bakabi
   Hey
 </nuxt-link>
 ```
-
-> Merhaba

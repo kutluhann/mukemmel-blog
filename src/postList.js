@@ -1,7 +1,7 @@
 export const postList = [
   {
     title: 'Hello World',
-    slug: 'ikinci-yazi',
+    slug: 'hello-world',
     category: 'javascript',
     details: require('./posts/hello-world.md').default,
     description: 'Bu benim ilk blog postum! Bu benim ilk blog postum! Bu benim ilk blog postum!',
@@ -10,7 +10,7 @@ export const postList = [
   },
   {
     title: 'İkinci Yazının Başlığı Biraz Uzun Olsun!',
-    slug: 'birinci-yazi',
+    slug: 'ikinci-yazinin-basligi-biraz-uzun-olsun',
     category: 'reactjs',
     details: require('./posts/ikinci-yazinin-basligi-biraz-uzun-olsun.md').default,
     description: 'Bu benim ikinci blog postum!',
