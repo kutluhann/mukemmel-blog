@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
-const SearchField = ({ passSearchValue }) => {
+const SearchField = ({ passSearchValue, categorySlug, categories }) => {
   const [searchValue, setSearchValue] = useState('')
+  const placeholder = (categorySlug ? categories.find(category => category.slug == categorySlug).name + ' kategorisinde' : 'Gönderilerde') + ' ara..' 
   return (
     <div className="mb-6 touch:mb-0 touch:mt-4 shadow rounded-10 flex justify-center p-5 flex-col w-full">
       <label htmlFor="search-input">
@@ -18,7 +19,7 @@ const SearchField = ({ passSearchValue }) => {
           id="search-input" 
           className="h-8 w-full border-none focus:outline-none text-8 touch:text-7" 
           type="text" 
-          placeholder="Gönderilerde ara.."
+          placeholder={placeholder}
           value={searchValue}
           onChange={e => {
             setSearchValue(e.target.value)

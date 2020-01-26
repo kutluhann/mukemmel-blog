@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import PostList from '../../components/blog/PostList'
 import SearchField from '../../components/blog/SearchField'
 import Categories from '../../components/blog/Categories'
 
 const BlogPage = ({ posts, categories }) => {
+  const { query } = useRouter()
   const [blogPosts, setBlogPosts] = useState([])
   const [searchVal, setSearchVal] = useState('')
   const getSearchVal = (searchVal) => setSearchVal(searchVal)
@@ -26,7 +28,7 @@ const BlogPage = ({ posts, categories }) => {
             </div>
             <aside className="w-1/3 touch:w-full desktop:mx-3 touch:mb-2 h-auto">
               <div className="sticky top-6 w-full flex flex-col justify-satart items-center touch:flex-col-reverse">
-                <SearchField passSearchValue={getSearchVal} />
+                <SearchField passSearchValue={getSearchVal} categorySlug={query.categorySlug} categories={categories} />
                 <Categories categories={categories} />
               </div>
             </aside>
