@@ -1,8 +1,13 @@
-import { getPosts, getCategories } from "../../src/blog";
+import { getPosts, getCategories, paginate } from "../../src/blog";
 
 const posts = getPosts();
 const categories = getCategories();
 
 export default async (req, res) => {
-  res.json({ posts, categories });
+  const pagination = paginate(posts, req.query.page)
+  res.json({
+    posts: pagination.paginatedPost,
+    categories,
+    paginationDetail: pagination.paginationDetail
+  });
 };

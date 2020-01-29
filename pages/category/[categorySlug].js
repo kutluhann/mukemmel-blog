@@ -1,8 +1,6 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-import { useRouter } from 'next/router'
-import ReactMarkdown from "react-markdown";
 import BlogPage from '../../components/blog/BlogPage'
 import Error from "./../_error";
 

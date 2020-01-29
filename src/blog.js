@@ -12,3 +12,27 @@ export const getPosts = () => postList.map(post => {
   const categoryDetail = categoryList.find(category => category.slug == post.category)
   return {...post, category: categoryDetail}
 })
+
+export const paginate = (posts, currentPage = 1) => {
+  let perPage = 2
+  let totalPosts = posts.length
+  let totalPages = Math.ceil(totalPosts / perPage)
+  currentPage = currentPage < 1 ? 1 : currentPage > totalPages ? totalPages : currentPage
+  let startIndex = (perPage * currentPage) - perPage
+  let endIndex = (perPage * currentPage)
+  let remainingPostCount = totalPosts - perPage * currentPage
+
+  let paginatedPost = posts.slice(startIndex, endIndex)
+  let isFirst = currentPage == 1
+  let hasMore = totalPosts <= perPage ? false : remainingPostCount <= 0 ? false : true
+
+  //console.log(filteredPosts.length)
+  
+  return {
+    paginationDetail: {
+      isFirst,
+      hasMore
+    },
+    paginatedPost
+  }
+}

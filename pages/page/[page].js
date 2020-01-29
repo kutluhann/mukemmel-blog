@@ -1,15 +1,15 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-import BlogPage from '../components/blog/BlogPage'
+import BlogPage from '../../components/blog/BlogPage'
 
-const Home = ({ posts, categories, isFirst, hasMore }) => (
+const Page = ({ posts, categories, isFirst, hasMore }) => (
   <BlogPage posts={posts} categories={categories} isFirst={isFirst} hasMore={hasMore}></BlogPage>
 );
 
-Home.getInitialProps = async ({ req }) => {
+Page.getInitialProps = async ({ req, query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch(`http://localhost:3000/api/posts?page=${query.page}`);
   const json = await res.json();
   const { isFirst, hasMore } = json.paginationDetail
   return { 
@@ -20,4 +20,4 @@ Home.getInitialProps = async ({ req }) => {
   };
 };
 
-export default Home;
+export default Page;
