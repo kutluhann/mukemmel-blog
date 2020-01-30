@@ -17,7 +17,7 @@ export const paginate = (posts, currentPage = 1) => {
   let perPage = 5
   let totalPosts = posts.length
   let totalPages = Math.ceil(totalPosts / perPage)
-  currentPage = currentPage < 1 ? 1 : currentPage > totalPages ? totalPages : currentPage
+  currentPage = totalPages != 0 ? currentPage < 1 ? 1 : currentPage > totalPages ? totalPages : currentPage : 1 
   let startIndex = (perPage * currentPage) - perPage
   let endIndex = (perPage * currentPage)
   let remainingPostCount = totalPosts - perPage * currentPage

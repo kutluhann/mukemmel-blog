@@ -3,12 +3,10 @@ import Post from './Post'
 const PostList = ({ posts }) => {
   return (
     <div>
-      {posts.length ? (
+      {posts.length > 0 && (
         (posts.map((post, index) => (
           <Post post={post} key={index} />
         )))
-      ) : (
-        <p className="title">Opps.. Maalesef Arama Sonucu Bulunamadı!</p>
       )}
     </div>
   )
