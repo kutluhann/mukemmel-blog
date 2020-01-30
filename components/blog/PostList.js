@@ -9,8 +9,7 @@ const PostList = ({ posts }) => {
         )))
       ) : (
         <p className="title">Opps.. Maalesef Arama Sonucu Bulunamadı!</p>
-      )
-      }
+      )}
     </div>
   )
 }

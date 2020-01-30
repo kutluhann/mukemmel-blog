@@ -1,8 +1,6 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-const Categories = ({ categories }) => {
-  const router = useRouter()
+const Categories = ({ categories, categorySlug }) => {
   const totalPostCount = categories.reduce((total, category) => {
     return total + category.postCount
   }, 0)
@@ -21,7 +19,7 @@ const Categories = ({ categories }) => {
             <Link href="/" scroll={false}>
               <a className="group h-8 cursor-pointer py-2 mx-2 text-8 flex justify-center items-center">
                 <span className="h-3 w-3 flex justify-center items-center">
-                    <span className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${!router.query.categorySlug ? 'h-3 w-3' : ''}`} ></span>
+                    <span className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${!categorySlug ? 'h-3 w-3' : ''}`} ></span>
                 </span>
                 <span className="ml-2 text-gray-600">Tüm yazılar / {totalPostCount}</span>
               </a>
@@ -34,7 +32,7 @@ const Categories = ({ categories }) => {
                   <span className="h-3 w-3 flex justify-center items-center">
                       <span 
                         style={{backgroundColor: category.color}}
-                        className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${router.query.categorySlug == category.slug ? 'h-3 w-3' : ''}`} 
+                        className={`bg-secondary w-2 h-2 rounded-sm group-hover:h-3 group-hover:w-3 transition-size ${categorySlug == category.slug ? 'h-3 w-3' : ''}`} 
                       ></span>
                   </span>
                   <span className="ml-2 text-gray-600">{category.name} / {category.postCount}</span>

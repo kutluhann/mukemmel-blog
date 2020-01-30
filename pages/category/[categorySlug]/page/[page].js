@@ -1,10 +1,10 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
-import BlogPage from '../../components/blog/BlogPage'
-import Error from "./../_error";
+import BlogPage from '../../../../components/blog/BlogPage'
+import Error from "./../../../_error";
 
-const Category = ({ posts, categories, isFirst, hasMore, statusCode }) => {
+const CategoryPage = ({ posts, categories, isFirst, hasMore, statusCode }) => {
   if (statusCode === 404) {
     return <Error statusCode={statusCode} />;
   }
@@ -13,9 +13,9 @@ const Category = ({ posts, categories, isFirst, hasMore, statusCode }) => {
   )
 }
 
-Category.getInitialProps = async ({ query }) => {
+CategoryPage.getInitialProps = async ({ query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch(`http://localhost:3000/api/posts?category=${query.categorySlug}&page=1`);
+  const res = await fetch(`http://localhost:3000/api/posts?category=${query.categorySlug}&page=${query.page}`);
   const json = await res.json();
   const { isFirst, hasMore } = json.paginationDetail
   return { 
@@ -27,4 +27,4 @@ Category.getInitialProps = async ({ query }) => {
   };
 };
 
-export default Category;
+export default CategoryPage;

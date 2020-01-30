@@ -9,7 +9,7 @@ const Home = ({ posts, categories, isFirst, hasMore }) => (
 
 Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch("http://localhost:3000/api/posts?page=1");
   const json = await res.json();
   const { isFirst, hasMore } = json.paginationDetail
   return { 

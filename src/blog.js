@@ -14,7 +14,7 @@ export const getPosts = () => postList.map(post => {
 })
 
 export const paginate = (posts, currentPage = 1) => {
-  let perPage = 2
+  let perPage = 5
   let totalPosts = posts.length
   let totalPages = Math.ceil(totalPosts / perPage)
   currentPage = currentPage < 1 ? 1 : currentPage > totalPages ? totalPages : currentPage
@@ -25,8 +25,6 @@ export const paginate = (posts, currentPage = 1) => {
   let paginatedPost = posts.slice(startIndex, endIndex)
   let isFirst = currentPage == 1
   let hasMore = totalPosts <= perPage ? false : remainingPostCount <= 0 ? false : true
-
-  //console.log(filteredPosts.length)
   
   return {
     paginationDetail: {
