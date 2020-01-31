@@ -4,12 +4,18 @@ import Head from "next/head";
 import BlogPage from '../../components/blog/BlogPage'
 import Error from "./../_error";
 
-const Category = ({ posts, categories, isFirst, hasMore, statusCode }) => {
+const Category = ({ posts, categories, isFirst, hasMore, statusCode, currentCategory }) => {
   if (statusCode === 404) {
     return <Error statusCode={statusCode} />;
   }
   return (
-    <BlogPage posts={posts} categories={categories} isFirst={isFirst} hasMore={hasMore}></BlogPage>
+    <div>
+      <Head>
+        <title>{currentCategory.name} – kutluhann.net</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <BlogPage posts={posts} categories={categories} isFirst={isFirst} hasMore={hasMore}></BlogPage>
+    </div>
   )
 }
 
@@ -23,7 +29,8 @@ Category.getInitialProps = async ({ query }) => {
     categories: json.categories,
     isFirst,
     hasMore,
-    statusCode: json.categories.some(category => category.slug == query.categorySlug) ? 200 : 404
+    statusCode: json.categories.some(category => category.slug == query.categorySlug) ? 200 : 404,
+    currentCategory: json.categories.find(category => category.slug == query.categorySlug)
   };
 };
 

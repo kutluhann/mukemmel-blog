@@ -4,7 +4,13 @@ import Head from "next/head";
 import BlogPage from '../../components/blog/BlogPage'
 
 const Page = ({ posts, categories, isFirst, hasMore }) => (
-  <BlogPage posts={posts} categories={categories} isFirst={isFirst} hasMore={hasMore}></BlogPage>
+  <div>
+    <Head>
+      <title>Blog – kutluhann.net</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <BlogPage posts={posts} categories={categories} isFirst={isFirst} hasMore={hasMore}></BlogPage>
+  </div>
 );
 
 Page.getInitialProps = async ({ req, query }) => {
